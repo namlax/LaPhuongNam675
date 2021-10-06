@@ -1,0 +1,48 @@
+@model IEnumerable<LaPhuongNam675.Models.LPN0675>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>
+                <label>Mã sinh viên</label>
+            </th>
+            <th>
+                <label>Tên sinh viên</label>
+            </th>
+            <th>
+                <label>LPNGender</label>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.LPNId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LPNName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LPNGender)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.LPNId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.LPNId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.LPNId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
